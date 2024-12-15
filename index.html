@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Denoiser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        input {
+            margin: 20px;
+        }
+        img {
+            margin: 20px;
+            max-width: 300px;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Denoiser Demo</h1>
+    <form id="uploadForm">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Denoise</button>
+    </form>
+    <h2>Results</h2>
+    <div id="output">
+        <p>Upload an image to see the results here!</p>
+    </div>
+    <script>
+        const form = document.getElementById('uploadForm');
+        const outputDiv = document.getElementById('output');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            const response = await fetch('/denoise', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                outputDiv.innerHTML = `<img src="${url}" alt="Denoised Image">`;
+            } else {
+                outputDiv.innerHTML = `<p>Error processing the image.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
