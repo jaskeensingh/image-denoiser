@@ -1,2 +1,3 @@
-# image-denoiser
-Optimizing neural networks for low-resource devices
+# Image Denoiser and Image Segmentation Project
+Optimising neural networks for low-resource devices
+
