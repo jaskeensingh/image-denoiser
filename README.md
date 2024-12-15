@@ -56,50 +56,6 @@ This project focuses on optimizing neural networks for low-resource devices by d
 | Denoising PSNR (dB)  | 32.1     | 32.0      |
 
 
-## Getting Started
-
-### Prerequisites
-- Python 3.8+
-- PyTorch
-- NumPy
-- OpenCV
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/image-denoiser-segmentation.git
-   cd image-denoiser-segmentation
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Training
-
-#### Denoising Model
-```bash
-python denoising/train.py --config configs/denoising.yaml
-```
-
-#### Segmentation Model
-```bash
-python segmentation/train.py --config configs/segmentation.yaml
-```
-
-### Evaluation
-
-#### Denoising
-```bash
-python denoising/evaluate.py --model saved_denoising_model.pth
-```
-
-#### Segmentation
-```bash
-python segmentation/evaluate.py --model saved_segmentation_model.pth
-```
 
 ## Datasets
 
